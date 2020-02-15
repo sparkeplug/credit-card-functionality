@@ -15,7 +15,16 @@ function CreditCard(cardNo, expiry, cvv, name, element) {
 
 CreditCard.prototype.setCardFinderEvent = function(element) {
   element.addEventListener("blur", event => {
-    console.log("event", event);
+    const value = event.target.value;
+    for (let conf in this.config) {
+      console.log(conf);
+      const pattern = this.config[conf]["cardPattern"];
+      console.log("pattern", pattern);
+      let reg = new RegExp(pattern);
+      let flag = reg.test(value);
+      console.log("flag", flag);
+    }
+    console.log("value", value);
   });
 };
 
@@ -76,10 +85,30 @@ CreditCard.prototype.init = function() {
 
 let NewCard = null;
 
+localStorage.setItem(
+  "savedCards",
+  JSON.stringify([
+    {
+      name: "HDFC",
+      cardNo: "5536859105276613",
+      expiry: "03/22"
+    },
+    {
+      name: "AXIS",
+      cardNo: "4716088083344970",
+      expiry: "02/22"
+    },
+    {
+      name: "AMEX",
+      cardNo: "370897299093956",
+      expiry: "01/22"
+    }
+  ])
+);
+
 let ADD_CARD_BTN = document.querySelector(".cards__add");
-console.log("ADD_CARD_BTN", ADD_CARD_BTN);
 let NEW_CARD_FORM = document.querySelector(".cards__card");
-console.log("NEW_CARD_FORM", NEW_CARD_FORM);
+let SAVED_CARDS = document.querySelector(".saved-cards__cards");
 
 ADD_CARD_BTN.addEventListener("click", event => {
   NEW_CARD_FORM.style.display = "block";
@@ -89,4 +118,48 @@ ADD_CARD_BTN.addEventListener("click", event => {
   }, 2000);
 });
 
-function scrapeFormElements() {}
+const localData = JSON.parse(localStorage.getItem("savedCards"));
+console.log("localData", localData);
+
+const renderSavedCards = function() {
+  localData.forEach(d => {
+    const li = document.createElement("li");
+    li.className = "saved-cards__card";
+    const cardDetails = document.createElement("div");
+    cardDetails.className = "saved-cards__card-details";
+    const title = document.createElement("h2");
+    title.style.marginBottom = "0.5rem";
+    title.innerHTML = d["name"];
+    title.className = "title";
+    const image = document.createElement("img");
+    image.className = "image";
+    image.alt = "visa";
+    const cardNo = document.createElement("div");
+    cardNo.className = "cardNo";
+    const cardNoTextStrong = document.createElement("strong");
+    const cardNoText = document.createElement("h4");
+    cardNoText.innerHTML = d["cardNo"];
+    const cardActions = document.createElement("div");
+    cardActions.className = "saved-cards__card-actions";
+    const edit = document.createElement("button");
+    edit.className = "edit";
+    edit.innerHTML = "EDIT";
+    const del = document.createElement("button");
+    del.className = "delete";
+    del.innerHTML = "DELETE";
+    cardNoTextStrong.append(cardNoText);
+    cardNo.append(cardNoText);
+    cardDetails.append(title);
+    cardDetails.append(image);
+    cardDetails.append(cardNo);
+    cardActions.append(edit);
+    cardActions.append(del);
+    li.append(cardDetails);
+    li.append(cardActions);
+    console.log(li);
+
+    SAVED_CARDS.append(li);
+  });
+};
+
+renderSavedCards();
