@@ -125,5 +125,13 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  box-sizing: border-box;
+  padding: 1rem;
+  border: 1px solid rgb(122, 122, 122);
   width: 100%;
+  transition: 0.25s all ease-in-out;
+}
+
+.saved-cards__card:hover {
+  background-color: lightgrey;
 }
