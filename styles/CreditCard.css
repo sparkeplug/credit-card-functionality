@@ -1,0 +1,129 @@
+/* CARDS SECTION CSS */
+
+.cards,
+.saved-cards {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 70%;
+  margin: 5rem 0;
+  box-sizing: border-box;
+  border: 0.25em solid rgb(122, 122, 122);
+  padding: 1rem;
+}
+
+.cards__wrapper {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 1rem;
+  border: 1px solid rgb(122, 122, 122);
+}
+
+.cards__add {
+  cursor: pointer;
+  color: rgb(122, 122, 122);
+}
+
+.cards__add:hover {
+  color: rgb(71, 71, 71);
+}
+
+.cards__container {
+  display: block;
+  position: relative;
+  height: auto;
+  width: 100%;
+}
+
+.cards__card {
+  display: none;
+  list-style: none;
+  width: 100%;
+}
+
+.cards__card-form {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  width: 100%;
+}
+
+.cards__card-formfield {
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 50%;
+  margin: 0 0.5rem;
+}
+
+.cards__card-formfield .error {
+  color: red;
+}
+
+.expiry {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  /* temporary solution */
+  padding-left: 4rem;
+}
+
+.input-field {
+  width: 100%;
+}
+
+.row {
+  display: flex;
+  position: relative;
+  justify-content: space-around;
+  align-items: flex-start;
+  margin: 1rem 0;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.actions {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.actions button {
+  margin-right: 1.25rem;
+}
+
+.note {
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: grey;
+}
+
+/* SAVED CARDS SECTION CSS */
+
+.saved-cards__cards {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  border: 1px solid rgb(122, 122, 122);
+  padding: 1rem;
+  width: 100%;
+
+  list-style: none;
+}
+
+.saved-cards__card {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}

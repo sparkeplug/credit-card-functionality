@@ -1,0 +1,52 @@
+html,
+body {
+  display: block;
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  overflow-y: auto;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#app {
+  display: flex;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  padding: 1em;
+}
+
+input {
+  height: 3.5rem;
+  padding: 0.5rem 1rem;
+  box-sizing: border-box;
+}
+
+.input--small {
+  width: 20%;
+}
+
+button {
+  /* height: 2rem; */
+  padding: 0.5rem 1rem;
+  background: none;
+  padding: 0.75rem 1rem;
+  box-sizing: border-box;
+  border: 1px solid grey;
+  cursor: pointer;
+  transition: 0.15s all ease-in-out;
+}
+
+button:hover {
+  background-color: black;
+  color: white;
+}

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Credit Card Functionality</title>
+    <link rel="stylesheet" href="./styles/main.css" />
+    <link rel="stylesheet" href="./styles/CreditCard.css" />
+  </head>
+  <body>
+    <div id="app">
+      <h2>Credit Card Functionality</h2>
+      <div class="cards">
+        <h2 style="margin-bottom: 1em">Manage Credit Cards</h2>
+        <div class="cards__wrapper">
+          <h5 class="cards__add"><strong>+</strong> ADD A NEW CARD</h5>
+          <ul class="cards__container">
+            <li class="cards__card">
+              <form action="" class="cards__card-form">
+                <div class="row">
+                  <div class="cards__card-formfield">
+                    <input
+                      id="cardNo"
+                      type="text"
+                      placeholder="Enter Card Number"
+                      class="input-field"
+                      maxlength="16"
+                      required
+                    />
+                    <p class="error" style="display:none">
+                      Invalid Card Number
+                    </p>
+                  </div>
+                  <div class="cards__card-formfield expiry">
+                    <h5 style="margin-right: 1rem;">Expiry</h5>
+                    <input
+                      id="mm"
+                      type="text"
+                      placeholder="MM"
+                      class="input--small"
+                      style="margin-right: 1rem;"
+                      maxlength="2"
+                      required
+                    />
+                    <input
+                      id="yy"
+                      type="text"
+                      placeholder="YY"
+                      class="input--small"
+                      style="margin-right: 1rem;"
+                      maxlength="2"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="cards__card-formfield">
+                    <input
+                      type="text"
+                      placeholder="Enter CVV"
+                      class="input-field"
+                      required
+                    />
+                  </div>
+                  <div class="cards__card-formfield">
+                    <input
+                      id="name"
+                      type="text"
+                      placeholder="Name this Card for future use"
+                      class="input-field"
+                    />
+                  </div>
+                </div>
+                <div class="actions">
+                  <button>
+                    SAVE THIS CARD
+                  </button>
+                  <button>CANCEL</button>
+                </div>
+                <p class="note">
+                  Your card details would be securely saved for faster payments.
+                  Your CVV will not be stored.
+                </p>
+              </form>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="saved-cards">
+        <ul class="saved-cards__cards">
+          <li class="saved-cards__card">
+            <div class="saved-cards__card-details">
+              <h2 class="title" style="margin-bottom: 0.5rem;">CARD 1</h2>
+              <img class="image" src="" alt="visa" />
+              <div class="cardNo">
+                <strong><h4>4585 46** **** 6947</h4></strong>
+              </div>
+            </div>
+            <div class="saved-cards__card-actions">
+              <button class="edit">EDIT</button>
+              <button class="delete">DELETE</button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <script src="./js/app.js"></script>
+  </body>
+</html>
